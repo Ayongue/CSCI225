@@ -5,57 +5,123 @@
 <head>
     <title>CSCI 225 Assignment 2</title>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
-    <div class="video">
-        <h1>Video</h1>
-        <video src="video/IMG.mov" width="400" height="300" controls loop>This is a frat chant video</video>
-        <form name="feedback" action="">
-            <p>
-                First name: <input type="text" name="fname" placeholder="anonymous" required>
-            </p>
-            <p>
-                Last name: <input type="text" name="lname" placeholder="anonymous" required>
-            </p>
-            <p>
-                Email: <input type="email" name="mail" placeholder="name@domain.com">
-            </p>
-            <p>
-                Do you recommend this website?
-            </p>
-            <p> <input type="radio" name="yes" value="yes">Yes</p>
-            <p> <input type="radio" name="no" value="no">No</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="navbar navbar-expand-lg navbar-light bg-dark">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"> <a class="nav-link text-light" href="https://www.usca.edu/">USCA</a> </li>
+                        <li class="nav-item"> <a class="nav-link text-light" href="#assignment">Assignment</a> </li>
+                        <li class="nav-item"> <a class="nav-link text-light" href="#contactinfo">Contact Information</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link text-light"
+                                href="https://blackboard.sc.edu">Blackboard</a> </li>
+                        <li class="nav-item"> <a class="nav-link text-light"
+                                href="https://ayongue.github.io/CSCI225/ContactMe.html">Assignment 2</a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="video">
+
+
+                    <h1 class="d-none">Video</h1>
+                    <video src="video/IMG.mov" width="400" height="300" controls loop>This is a frat chant
+                        video</video>
+                </div>
+            </div>
+
+
+
+            <div class="col">
+                <form name="feedback" class="mt-3" action="submit-feedback.php" method="POST">
+
+                    <div class="form-floating mb-2">
+                        <input class="form-control" type="text" id="fname" name="fname" placeholder="anonymous"
+                            required>
+                        <label class="form-label" for="fname">First Name:</label>
+                    </div>
+
+                    <div class="form-floating mb-2">
+                        <input class="form-control" type="text" id="lname" name="lname" placeholder="anonymous"
+                            required>
+                        <label class="form-label" for="lname">Last Name:</label>
+                    </div>
+
+                    <div class="form-floating mb-2">
+                        <input class="form-control" type="email" id="mail" name="mail" placeholder="name@domain.com"
+                            required>
+                        <label class="form-label" for="fname">Email</label>
+                    </div>
+
+
+                    <p>
+                        Do you recommend this website?
+                    </p>
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="radio" id="yes" name="recommend">
+                        <label class="form-check-label" for="yes">Yes</label>
+                </form> <br>
+                <input class="form-check-input" type="radio" id="no" name="recommend">
+                <label class="form-check-label" for="no">No</label></form><br>
+
+            </div>
             <p>What are your favorite websites</p>
-            <p><input type="checkbox" name="site" value="google">Google</p>
-            <p><input type="checkbox" name="site" value="facebook">Facebook</p>
-            <p><input type="checkbox" name="site" value="twitter">Twitter</p>
+
+
+
+            <label class="form-label" for="favwebsite">Your Favorite Website</label>
+            <select id="favwebsite" name="favwebsite">
+                <option value="google">Google</option>
+                <option value="facebook">Facebook</option>
+                <option value="twitter">Twitter</option>
+
+            </select>
+
             <p>Rate this website on a scale of 1-10:</p>
             <p><input type="range" name="rate" min="1" max="10"></p>
+
             <p>Any additional comments?</p>
             <p><textarea name="comment" rows="20" cols="80" autofocus> Enter here</textarea></p>
             <p>Telephone: <input type="tel" name="homephone" placeholder="(xxx)xxx-xxxx" pattern="\(d{3}\)\d{3}-\{4}">
             </p>
+
             <p>Date: <input type="date" name="date"></p>
+
             <p>Enter your favorite number <input type="number" name="num" min="1" max="10" value="5"></p>
 
             <p><input type="submit" value="Submit"></p>
 
 
-            
 
 
 
 
 
-        </form>
+            </form>
+        </div>
+
+
+
+
     </div>
- 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 
 </body>

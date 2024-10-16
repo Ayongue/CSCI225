@@ -1,0 +1,200 @@
+/* Positioning and Styling for Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(216, 151, 151);
+    text-align: center;
+    padding: 10px;
+}
+
+/* Default Hidden State for divs */
+
+
+div.introduction, div.assignment, div.portfolio, address, div.schedule {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.introduction {
+    text-align: center; /* This centers all text in the introduction */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* This horizontally centers the image */
+    margin-top: 20px; /* Add some spacing between the paragraph and the image */
+}
+
+.image-container img {
+    width: 50%; /* You can adjust the size as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Specific positioning for elements */
+div.introduction h1 {
+    position: absolute;
+    top: -50px;
+    left: -160px;
+    visibility: visible;
+    font-size: 1.25em;
+}
+
+div.schedule h1 {
+    position: absolute;
+    top: 220px;
+    left: -110px;
+    visibility: visible;
+    font-size: 1.25em;
+}
+
+#contactinfo {
+    position: absolute;
+    top: 200px;
+    left: -305px;
+    visibility: visible;
+    font-size: 1.25em;
+}
+
+div.portfolio h1 {
+    position: absolute;
+    top: -30px;
+    left: 380px;
+    visibility: visible;
+    font-size: 1.25em;
+}
+
+div.assignment h1 {
+    position: absolute;
+    top: 160px;
+    left: 260px;
+    visibility: visible;
+    font-size: 1.25em;
+}
+
+/* On hover, make the divs visible */
+div.introduction:hover,
+div.assignment:hover,
+div.portfolio:hover,
+div.schedule:hover, address:hover {
+    visibility: visible;
+}
+
+/* Optionally use z-index if there is overlapping */
+div.introduction, div.assignment, div.portfolio, div.schedule, address {
+    z-index: 1;
+}
+
+/* Position the p element inside div.introduction */
+div.introduction p {
+    position: absolute; /* Ensure it is positioned correctly */
+    left: 20px; /* Set the left position */
+    top: 20px; /* Set the top position */
+    right: 20px; /* Set the right position */
+    bottom: 20px; /* Set the bottom position */
+    
+}
+
+/* Apply 'myfont' to all paragraphs */
+p {
+    font-family: 'myfont', sans-serif;
+    line-height: 1.6; /* Set the line height (adjust as necessary) */
+    text-align: center; /* Set the text alignment to justify (you can change to left, right, or center) */
+    font-size: 0.8em
+    
+}
+
+/* Style for list items */
+li {
+    font-weight: bold; /* Change from 100px (invalid) to bold */
+    color: blue; /* Add blue text color */
+    list-style: none; /* Remove default bullet points */
+    border: 2px solid #fff; /* White border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 20px; /* Padding to make the list items more visible */
+    margin: 5px 0; /* Space between items */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+/* Uppercase text, letter spacing, and text shadow for all h1 elements */
+h1 {
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 2px; /* Adjust letter spacing */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Apply text shadow */
+    border: 2px solid #fff; /* White border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Padding to give space around the text */
+    margin: 10px 0; /* Margin to add space above and below the heading */
+}
+
+/* Style for links */
+a:link {
+    color: #3498db; /* Blue color for unvisited links */
+    text-decoration: none; /* Remove underline for links */
+    font-weight: bold; /* Make links bold */
+}
+
+a:visited {
+    color: #9b59b6; /* Purple color for visited links */
+}
+
+a:hover {
+    color: #e74c3c; /* Red color for links when hovered */
+    text-decoration: underline; /* Underline the link on hover */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow on hover */
+}
+
+a:active {
+    color: #f39c12; /* Orange color for active (clicked) links */
+}
+
+/* Apply the custom font */
+@font-face {
+    font-family: 'myfont';
+    src: url(../fonts/chunkfive.eot);
+}
+
+/* Navbar Styling */
+.navbar ul {
+    display: flex;
+    
+}
+.navbar li{
+    list-style-image: url(../img/star.png);
+}
+
+.navbar ul li {
+    padding: 50px;
+    border: 2px solid #fff; /* White border around each nav item */
+    border-radius: 10px; /* Rounded corners */
+    margin: 5px; /* Space between list items */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.navbar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+/* Body Background */
+body {
+    background-image: url(../img/backg.jpg);
+}
+
+/* Apply border-right and border-bottom style to portfolio, contactinfo, and schedule */
+div.portfolio, #contactinfo, div.schedule {
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+
+/* If you want to ensure the borders apply to all relevant elements */
+div.portfolio h1, #contactinfo, div.schedule h1 {
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
