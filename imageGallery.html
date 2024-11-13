@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; 
+        }
+
+        .gallery-container {
+            position: relative;
+            height: 100vh; 
+            width: 100vw;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .gallery-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #gallery-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover; 
+        }
+
+        .image-description {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+
+        .navigation-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            visibility: hidden; 
+            transition: visibility 0.3s ease;
+        }
+
+        .nav-arrow {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-arrow.left {
+            left: 10px;
+        }
+
+        .nav-arrow.right {
+            right: 10px;
+        }
+
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <div class="gallery-image-container">
+            <img id="gallery-image" src="img/desert.jpg" alt="Image 1">
+            <div id="description" class="image-description">This is an image of a desert.</div>
+        </div>
+
+        <div class="navigation-arrows">
+            <button id="prev" class="nav-arrow left">&#10094;</button>
+            <button id="next" class="nav-arrow right">&#10095;</button>
+        </div>
+
+        <div class="dots-container">
+            <span class="dot" onclick="showImage(0)"></span>
+            <span class="dot" onclick="showImage(1)"></span>
+            <span class="dot" onclick="showImage(2)"></span>
+            <span class="dot" onclick="showImage(3)"></span>
+            <span class="dot" onclick="showImage(4)"></span>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            { src: "img/desert.jpg", description: "This is an image of a desert." },
+            { src: "img/mountain.jpg", description: "This is an image of the mountains." },
+            { src: "img/beach.jpg", description: "This is an image of the beach." },
+            { src: "img/city.jpg", description: "This is an image of the city." },
+            { src: "img/country.jpg", description: "This is an image of the country." }
+        ];
+
+        let currentIndex = 0;
+
+        const imageElement = document.getElementById("gallery-image");
+        const descriptionElement = document.getElementById("description");
+        const dots = document.querySelectorAll(".dot");
+        const navArrows = document.querySelector(".navigation-arrows");
+
+        function updateGallery() {
+            imageElement.src = images[currentIndex].src;
+            descriptionElement.textContent = images[currentIndex].description;
+
+            
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[currentIndex].classList.add("active");
+        }
+
+     
+        function showImage(index) {
+            currentIndex = index;
+            updateGallery();
+        }
+
+       
+        document.getElementById("prev").addEventListener("click", () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateGallery();
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateGallery();
+        });
+
+        updateGallery();
+
+        document.addEventListener('mousemove', function(event) {
+            const screenWidth = window.innerWidth;
+            const threshold = 50;  
+
+            if (event.clientX < threshold || event.clientX > screenWidth - threshold) {
+                navArrows.style.visibility = 'visible';
+            } else {
+                navArrows.style.visibility = 'hidden';
+            }
+        });
+
+    </script>
+
+</body>
+</html>
